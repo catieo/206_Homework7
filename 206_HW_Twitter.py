@@ -86,8 +86,8 @@ def get_tweets(search_term):
 	else:
 		print("making a request for new data")
 		results = api.search(q=search_term)
-		#print(results)
-		#print(type(results))
+		print(results)
+		print(type(results))
 		CACHE_DICTION[full_search_term] = results
 		dumped_json_cache = json.dumps(CACHE_DICTION)
 		fw = open(CACHE_FNAME,"w")
