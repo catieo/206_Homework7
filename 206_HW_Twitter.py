@@ -5,7 +5,7 @@ import json
 import twitter_info
 
 ## SI 206 - HW
-## COMMENT WITH:
+## COMMENT WITH: 
 ## Your section day/time: Thursday 8:30 AM
 ## Any names of people you worked with on this assignment:
 
@@ -86,8 +86,8 @@ def get_tweets(search_term):
 	else:
 		print("making a request for new data")
 		results = api.search(q=search_term)
-		print(results)
-		print(type(results))
+		#print(results)
+		#print(type(results))
 		CACHE_DICTION[full_search_term] = results
 		dumped_json_cache = json.dumps(CACHE_DICTION)
 		fw = open(CACHE_FNAME,"w")
@@ -105,6 +105,14 @@ for result in results["statuses"]:
 ## 4. With what you learn from the data -- e.g. how exactly to find the 
 ##		text of each tweet in the big nested structure -- write code to print out 
 ## 		content from 5 tweets, as shown in the linked example.
+for i in range(3):
+	search = input("Enter Tweet term: ")
+	tweet_result = get_tweets(search)
+	for r in tweet_result["statuses"][:5]:
+		print("Text:",r["text"])
+		print("Created at:",r["created_at"])
+		print("\n")
+
 
 
 
